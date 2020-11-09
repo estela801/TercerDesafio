@@ -1,7 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../Provider/UserProvider";
 import { auth } from "../Firebase";
 import { Router, Link } from "@reach/router";
+import { firestore } from "../Firebase";
+import { toast } from "react-toastify";
+import  Empleado  from "./Empleado";
+import inicio from "./Inicio";
+import Nav from "./Nav";
 
 const Principal = () => {
 
@@ -10,40 +15,22 @@ const Principal = () => {
   
     const { photoURL, displayName, email } = user;
     console.log(" Empleadx : " + displayName + " - " + email);
-  
-    const signOut = () => {
-      auth.signOut();  
-    };
+ 
+
+   
   
     return (
       <div>
-           <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Navbar</a>
-                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                     <span class="navbar-toggler-icon"></span>
-                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                 <li class="nav-item active">
-                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                 <li class="nav-item">
-                     <a class="nav-link" href="#">Features</a>
-                 </li>
-                 <li class="nav-item">
-                  <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                <button type="button" class="btn btn-link" onClick={() => { signOut() }}>Cerrar Sesión</button>
-                </li>
-            </ul>
-       </div>
-        </nav>
+           <Nav/>
   
-        <div class="container">
-          <div className="row">
-            <div className="col-md-12">
-              <span className="float-right">
+  <div class="container" style={{ marginTop: "8%"}}>
+  <h1>BIENVENIDO/A</h1>
+   
+          <div className="row float-right" >
+            <div className="col-md-12" >
+              <span className="float-center">
+               <h1>DATOS DEL USUARIO</h1>
+               <br></br>
                 <div
                   style={{
                     background: `url(${photoURL || 'https://res.cloudinary.com/dqcsk8rsc/image/upload/v1577268053/avatar-1-bitmoji_upgwhc.png'})  no-repeat center center`,
