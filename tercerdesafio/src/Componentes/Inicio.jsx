@@ -13,7 +13,7 @@ function Inicio()
     const user = useContext(UserContext);
     console.log(" Usuario Application : " + user);
     return (
-        user ? <Empleado/>  // true
+        user ? <EmpleadoLista/>  // true
           : // false
           <Router> 
               <Login path="/" />

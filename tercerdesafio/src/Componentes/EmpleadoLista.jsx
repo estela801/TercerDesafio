@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../Provider/UserProvider";
-import { auth } from "../Firebase";
 import { Router, Link } from "@reach/router";
 import { firestore } from "../Firebase";
 import { toast } from "react-toastify";
@@ -39,8 +38,11 @@ const EmpleadoLista= () => {
   }, []);
 
   const addOrEditEmpleado = async (EmpleadoObject) => {
+      this.sueldon=this.horas*9.75:
+   
       try {
           if (currentId === "") {
+            
               await firestore.collection("empleados").doc().set(EmpleadoObject);
               toast("Se agregó un nuevo Empleado",{
                   type: "success",
@@ -64,26 +66,27 @@ const EmpleadoLista= () => {
          <Nav/>
   
 
-  <div class="container" style={{ marginTop: "8%"}}>
+  <div class="container" style={{ marginTop: "6%"}}>
  
   <>    
-  <div className="col-md-4 p-2">
-        <h2>AGREGAR/ACTUALIZAR EMPLEADOS</h2>
-        <p>*Seleccione un empleado para actualizar la información* </p>
+  <div className=" float-center">
+        <h2 style={{ textAlign:"center" }}>AGREGAR/ACTUALIZAR EMPLEADOS</h2>
+        <p style={{ textAlign:"center" }}>*Seleccione un empleado para actualizar la información* </p>
         <Empleado {...{ addOrEditEmpleado, currentId, Empleado }} />
       </div>
 
-   
-
-      <div className="col-md-8 p-2">
+   <br></br>
+   <br></br>
+      <div className="float-center">
         <div class="container">
-          <h2>Lista Empleados</h2>
+          <h2 style={{ textAlign:"center" }}>LISTA  DE EMPLEADOS</h2>
           <table class="table table-hover">
             <thead>
               <tr>
                 <th>Código</th>
                 <th>Nombre</th>
                 <th>Horas Trabajadas</th>
+                <th>Salario Neto</th>
                 <th>Aciones</th>
               </tr>
             </thead>
@@ -93,6 +96,8 @@ const EmpleadoLista= () => {
                    <td>{Empleado.codigo}</td>
                   <td>{Empleado.nombre}</td>
                   <td>{Empleado.horas}</td>
+                  <td>{Empleado.salarion}</td>
+                  
                   <td>
                     <button className="btn btn-primary" onClick={() => setCurrentId(Empleado.id)}>Editar</button>
                     &nbsp;

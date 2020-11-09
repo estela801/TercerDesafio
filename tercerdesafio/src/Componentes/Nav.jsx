@@ -14,21 +14,19 @@ function Nav() {
 
     return (    
     
-        <Router>
+       
           <nav class="navbar navbar-inverse">
             <div class="container-fluid">
               <ul class="nav navbar-nav">
-                <li class="active"><Link to="Principal">Inicio</Link></li>
-                <li><Link to="Empleado">Agregar Empleados</Link></li>
-                <li><Link to="EmpleadoLista">Ver Empleados</Link></li>
+                <li class="active"><Link to="Principal">Usuario</Link></li>
+                <li><Link to="EmpleadoLista"> Empleados</Link></li>
                 <li className="nav-item">
                 <button type="button" className="btn btn-link" onClick={() => { signOut() }}>Cerrar Sesión</button>
                 </li>
               </ul>
             </div>
           </nav>
-          
-        </Router>
+     
     
     );
   }
