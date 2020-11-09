@@ -9,11 +9,7 @@ import Empleado from "./Empleado";
 import Nav from "./Nav";
 
 const EmpleadoLista= () => {
-//salir
 
-const signOut = () => {
-    auth.signOut();  
-  };
 
   //Codigo infor empleados
   const[Empleados, setEmpleados] = useState([]);
@@ -42,7 +38,7 @@ const signOut = () => {
       getEmpleados();
   }, []);
 
-  const addorEditEmpleado = async (EmpleadoObject) => {
+  const addOrEditEmpleado = async (EmpleadoObject) => {
       try {
           if (currentId === "") {
               await firestore.collection("empleados").doc().set(EmpleadoObject);
@@ -74,7 +70,7 @@ const signOut = () => {
   <div className="col-md-4 p-2">
         <h2>AGREGAR/ACTUALIZAR EMPLEADOS</h2>
         <p>*Seleccione un empleado para actualizar la información* </p>
-        <Empleado {...{ addorEditEmpleado, currentId, Empleado }} />
+        <Empleado {...{ addOrEditEmpleado, currentId, Empleado }} />
       </div>
 
    

@@ -8,11 +8,7 @@ import inicio from "./Inicio";
 import Nav from "./Nav";
 
 const Empleado = (props) => {
-   //salir
-   
-   const signOut = () => {
-    auth.signOut();  
-  };
+ 
 const initialStateValues = {
     codigo: "",
     nombre: "",
@@ -30,12 +26,13 @@ const initialStateValues = {
      const {name, value} = e.target;
      setValues({...values, [name]:value });
    };
+   
    const handleSubmit = (e) => {
-     e.preventDefault();
-    
-     props.addorEditEmpleado(values);
-     setValues({...initialStateValues});
-   };
+    e.preventDefault();
+
+    props.addOrEditEmpleado(values);
+    setValues({ ...initialStateValues });
+  };
    
    const getEmpleadoById = async (id) => {
      const doc = await firestore.collection("empleados").doc(id).get();
@@ -54,8 +51,8 @@ const initialStateValues = {
    
     
   return (
-<div>    <Nav/>
-   
+<div>   
+
     <div className="contain float-center">
     
     <br></br>
