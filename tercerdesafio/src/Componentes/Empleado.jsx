@@ -4,11 +4,11 @@ import { UserContext } from "../Provider/UserProvider";
 import { auth } from "../Firebase";
 import { firestore } from "../Firebase";
 import { toast } from "react-toastify";
-import inicio from "./Inicio";
 import Nav from "./Nav";
 
 const Empleado = (props) => {
- 
+
+
 const initialStateValues = {
     codigo: "",
     nombre: "",
@@ -52,6 +52,7 @@ const initialStateValues = {
     
   return (
 <div>   
+    <Nav/>
 
     <div className="contain float-center">
     
@@ -102,7 +103,7 @@ const initialStateValues = {
 />
 </div>
 <button className="btn btn-primary btn-block">
-{props.currentId === "" ? "Guardar" : "Actualizar"}
+{props.currentId === "" ? "Actualizar " : "Guardar"}
 </button>
 </form>
 </span>
