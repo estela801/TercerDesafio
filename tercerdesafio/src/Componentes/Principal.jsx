@@ -17,8 +17,8 @@ const Principal = () => {
   
     return (
       <div>
-           <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Navbar</a>
+           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">DPS</a>
                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                      <span class="navbar-toggler-icon"></span>
                  </button>
@@ -39,7 +39,7 @@ const Principal = () => {
             </ul>
        </div>
         </nav>
-  
+  <br></br>
         <div class="container">
           <div className="row">
             <div className="col-md-12">
@@ -56,7 +56,7 @@ const Principal = () => {
                 <br></br>
                Nombre : <h2 className="text-2xl font-semibold">{displayName}</h2>
                 <br></br>
-               Correo: <h3 className="italic">{email}</h3>
+               
               </span>
             </div>
           </div>
