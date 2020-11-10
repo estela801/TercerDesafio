@@ -137,12 +137,7 @@ const initialStateValues = {
         />
 
       </div>
-<<<<<<< HEAD
       <button className="btn btn-info btn-block">
-=======
-     
-      <button className="btn btn-primary btn-block">
->>>>>>> 07d4f410f3c0cee889282b8da1493be092f0268a
         {props.currentId === "" ? "Guardar" : "Actualizar"}
       </button>
     </form>

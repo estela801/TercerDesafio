@@ -38,11 +38,8 @@ const EmpleadoLista= () => {
   }, []);
 
   const addOrEditEmpleado = async (EmpleadoObject) => {
-<<<<<<< HEAD
       //this.salarion=this.horas*9.75;
-=======
       
->>>>>>> 07d4f410f3c0cee889282b8da1493be092f0268a
    
       try {
           if (currentId === "") {
