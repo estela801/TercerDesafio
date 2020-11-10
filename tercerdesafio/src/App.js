@@ -12,7 +12,7 @@ function App() {
   return (
    
     <UserProvider>
-     <Inicio />
+     <Inicio/>
 
     </UserProvider>
   );

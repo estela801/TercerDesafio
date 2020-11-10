@@ -14,9 +14,10 @@ const firebaseConfig = {
   measurementId: "G-Y6PKC800LH"
 };
 
-firebase.initializeApp(firebaseConfig);
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+  
+const fb = firebase.initializeApp(firebaseConfig);
+export const auth = fb.auth();
+export const firestore = fb.firestore();
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
