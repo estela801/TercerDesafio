@@ -38,7 +38,7 @@ const EmpleadoLista= () => {
   }, []);
 
   const addOrEditEmpleado = async (EmpleadoObject) => {
-      this.sueldon=this.horas*9.75:
+      this.salarion=this.horas*9.75;
    
       try {
           if (currentId === "") {

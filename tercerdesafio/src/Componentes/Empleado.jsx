@@ -12,7 +12,7 @@ const initialStateValues = {
     codigo: "",
     nombre: "",
     horas: 0,
-   salarion: 0,
+  
    };
     
   
@@ -26,7 +26,6 @@ const initialStateValues = {
    const handleSubmit = (e) => {
      e.preventDefault();
   
-     
      props.addOrEditEmpleado(values);
      setValues({ ...initialStateValues });
    };
