@@ -38,7 +38,7 @@ const EmpleadoLista= () => {
   }, []);
 
   const addOrEditEmpleado = async (EmpleadoObject) => {
-      this.salarion=this.horas*9.75;
+      //this.salarion=this.horas*9.75;
    
       try {
           if (currentId === "") {
@@ -99,7 +99,7 @@ const EmpleadoLista= () => {
                   <td>{Empleado.salarion}</td>
                   
                   <td>
-                    <button className="btn btn-primary" onClick={() => setCurrentId(Empleado.id)}>Editar</button>
+                    <button className="btn btn-info" onClick={() => setCurrentId(Empleado.id)}>Editar</button>
                     &nbsp;
                     &nbsp;
                     <button className="btn btn-danger" onClick={() => onDeleteEmpleado(Empleado.id)}>Eliminar</button>
