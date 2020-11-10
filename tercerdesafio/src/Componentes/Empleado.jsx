@@ -11,8 +11,13 @@ const Empleado = (props) => {
 const initialStateValues = {
     codigo: "",
     nombre: "",
-    horas: 0,
-  
+    horas: "0",
+    sueldob:0,
+    isss:0,
+    afp:0,
+    renta:0,
+    sueldol:0,
+    sueldon:0,
    };
     
   
@@ -25,7 +30,47 @@ const initialStateValues = {
  
    const handleSubmit = (e) => {
      e.preventDefault();
-  
+      if(values.horas<=160)
+      {
+        values.sueldob = values.horas*9.75; 
+        values.isss = values.sueldob * 0.0525;
+        values.afp = values.sueldob * 0.0688;
+        values.renta = values.sueldob * 0.1;
+        values.sueldol = values.sueldob - values.renta - values.afp - values. isss;
+   
+      }
+    
+      else if (values.horas>160 && values.horas<=200)
+      { 
+        values.sueldob = (160 * 9.75) + ((values.horas - 160)*11.50);
+        values.isss = values.sueldob * 0.0525;
+        values.afp = values.sueldob * 0.0688;
+        values.renta = values.sueldob * 0.1;
+        values.sueldol = values.sueldob - values.renta - values.afp - values. isss;
+       
+
+      }
+
+      else if (values.horas>200 && values.horas<=250)
+      {
+        values.sueldob = (160*9.75) + (39*11.50) + ((values.horas-200)*12.50)
+        values.isss = values.sueldob * 0.0525;
+        values.afp = values.sueldob * 0.0688;
+        values.renta = values.sueldob * 0.1;
+        values.sueldol = values.sueldob - values.renta - values.afp - values. isss;
+ 
+
+      }
+      else 
+      {
+        values.sueldob = values.horas*12.50; 
+        values.isss = values.sueldob * 0.0525;
+        values.afp = values.sueldob * 0.0688;
+        values.renta = values.sueldob * 0.1;
+        values.sueldol = values.sueldob - values.renta - values.afp - values. isss;
+        
+      }
+     
      props.addOrEditEmpleado(values);
      setValues({ ...initialStateValues });
    };
@@ -82,7 +127,7 @@ const initialStateValues = {
           <i className="material-icons">Horas</i>
         </div>
         <input
-         type="text"
+         type="number"
          value={values.horas}
          name="horas"
          placeholder="Ingrese las horas trabajadas"
@@ -91,9 +136,13 @@ const initialStateValues = {
 
         />
 
-
       </div>
+<<<<<<< HEAD
       <button className="btn btn-info btn-block">
+=======
+     
+      <button className="btn btn-primary btn-block">
+>>>>>>> 07d4f410f3c0cee889282b8da1493be092f0268a
         {props.currentId === "" ? "Guardar" : "Actualizar"}
       </button>
     </form>
