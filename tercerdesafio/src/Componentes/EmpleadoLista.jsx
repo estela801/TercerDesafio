@@ -13,6 +13,17 @@ const EmpleadoLista= () => {
   //Codigo infor empleados
   const[Empleados, setEmpleados] = useState([]);
   const [currentId, setCurrentId] = useState("");
+  var maxi = 0;
+  var EmpleadoM = {
+    nombre: "",
+    salario: "",
+    m : "mayor"
+  };
+  var EmpleadoP = {
+    nombre: "",
+    salario: "",
+    m : "mayor"
+  }
 
   const getEmpleados = async () => {
       firestore.collection("empleados").onSnapshot((querySnapshot) => {
@@ -22,7 +33,7 @@ const EmpleadoLista= () => {
           });
           setEmpleados(docs);
       });
-  };
+      };
 
   const onDeleteEmpleado = async (id) => {
       if (window.confirm("¿Estás seguro que deseas eliminar este empleado?")) {
@@ -70,17 +81,44 @@ const EmpleadoLista= () => {
   <div class="container" style={{ marginTop: "6%"}}>
  
   <>    
-  <div className=" float-center">
-        <h2 style={{ textAlign:"center" }}>AGREGAR/ACTUALIZAR EMPLEADOS</h2>
-        <p style={{ textAlign:"center" }}>*Seleccione un empleado para actualizar la información* </p>
+  <div className=" float-right">
+        <h2 style={{ textAlign:"right" }}>AGREGAR/ACTUALIZAR EMPLEADOS</h2>
+        <p style={{ textAlign:"right" }}>*Seleccione un empleado para actualizar la información* </p>
         <Empleado {...{ addOrEditEmpleado, currentId, Empleado }} />
       </div>
+      <div style={{ float : "left"}}>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Salario</th>
+              <th>Ganancia</th>
+            </tr>
+          </thead>
+          <tbody>
+           <tr>
+             { Empleados.map((emp)=> {
+              if(maxi < emp.sueldob){
+                EmpleadoM.nombre = emp.nombre;
+                EmpleadoM.salario = emp.sueldob;
+                maxi = emp.sueldob; 
+                }
+             })}
+             <td>{EmpleadoM.nombre}</td>
+             <td>{EmpleadoM.salario}</td>
+             <td>{EmpleadoM.m}</td>
+           </tr>
+           <tr>
 
+           </tr>
+          </tbody>
+        </table>
+      </div>
    <br></br>
    <br></br>
       <div className="float-center">
         <div class="container">
-          <h2 style={{ textAlign:"center" }}>LISTA  DE EMPLEADOS</h2>
+          <h2 style={{ textAlign:"center" , marginTop: "30%"}}>LISTA  DE EMPLEADOS</h2>
           <table class="table table-hover">
             <thead>
               <tr>
