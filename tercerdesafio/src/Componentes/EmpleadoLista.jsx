@@ -14,6 +14,7 @@ const EmpleadoLista= () => {
   const[Empleados, setEmpleados] = useState([]);
   const [currentId, setCurrentId] = useState("");
   var maxi = 0;
+  var min = 0;
   var EmpleadoM = {
     nombre: "",
     salario: "",
@@ -22,7 +23,7 @@ const EmpleadoLista= () => {
   var EmpleadoP = {
     nombre: "",
     salario: "",
-    m : "mayor"
+    m : "menor"
   }
 
   const getEmpleados = async () => {
@@ -81,13 +82,14 @@ const EmpleadoLista= () => {
   <div class="container" style={{ marginTop: "6%"}}>
  
   <>    
-  <div className=" float-right">
+  <div className=" float-right" style={{ width : "70%"}}>
         <h2 style={{ textAlign:"right" }}>AGREGAR/ACTUALIZAR EMPLEADOS</h2>
         <p style={{ textAlign:"right" }}>*Seleccione un empleado para actualizar la información* </p>
-        <Empleado {...{ addOrEditEmpleado, currentId, Empleado }} />
+        <Empleado {...{ addOrEditEmpleado, currentId, Empleado }} style={{ float : "right"}} />
       </div>
-      <div style={{ float : "left"}}>
-        <table class="table table-hover">
+      <div style={{ float : "left", width: "30%"}}>
+      <h4 style={{ textAlign:"left", marginTop :"15%" }}>Tabla empleados con mayor y menor ganancia </h4>
+        <table class="table table-hover" style={{ marginTop : "0%"}}>
           <thead>
             <tr>
               <th>Nombre</th>
@@ -102,6 +104,7 @@ const EmpleadoLista= () => {
                 EmpleadoM.nombre = emp.nombre;
                 EmpleadoM.salario = emp.sueldob;
                 maxi = emp.sueldob; 
+                min = maxi;
                 }
              })}
              <td>{EmpleadoM.nombre}</td>
@@ -109,7 +112,16 @@ const EmpleadoLista= () => {
              <td>{EmpleadoM.m}</td>
            </tr>
            <tr>
-
+             { Empleados.map((emp) => {
+               if(min > emp.sueldob){
+                 min = emp.sueldob;
+                EmpleadoP.nombre = emp.nombre;
+                EmpleadoP.salario = emp.sueldob;
+               }
+             })}
+             <td>{EmpleadoP.nombre}</td>
+             <td>{EmpleadoP.salario}</td>
+             <td>{EmpleadoP.m}</td>
            </tr>
           </tbody>
         </table>

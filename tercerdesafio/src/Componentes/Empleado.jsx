@@ -94,7 +94,7 @@ const initialStateValues = {
 
     
    return (
-    <form onSubmit={handleSubmit} className="card card-body border-primary  col-6">
+    <form onSubmit={handleSubmit} className="card card-body border-primary  col-8 rr">
       <div className="form-group input-group">
         <div className="input-group-text bg-light">
           <i className="material-icons">codigo</i>
