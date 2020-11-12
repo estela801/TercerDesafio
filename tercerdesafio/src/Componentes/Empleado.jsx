@@ -133,7 +133,7 @@ const initialStateValues = {
          placeholder="Ingrese las horas trabajadas"
          className="form-control"
          onChange={handleInputChange}
-
+            min='0'
         />
 
       </div>

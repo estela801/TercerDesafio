@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 import  Empleado  from "./Empleado";
 import inicio from "./Inicio";
 import Nav from "./Nav";
-
 const Principal = () => {
 
 
@@ -15,10 +14,7 @@ const Principal = () => {
   
     const { photoURL, displayName, email } = user;
     console.log(" Empleadx : " + displayName + " - " + email);
- 
-
    
-  
     return (
       <div>
            <Nav/>

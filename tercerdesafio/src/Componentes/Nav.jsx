@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { BrowserRouter as Router, Route,  Switch } from 'react-router-dom';
 import { Link } from "@reach/router";
+//import { Router, Link } from "@reach/router";
 import Empleado from "./Empleado";
 import EmpleadoLista from "./EmpleadoLista";
 import { UserContext } from "../Provider/UserProvider";
 import Principal from "./Principal";
 import { auth } from "../Firebase";
+
 
 const  Nav = () => {
 
@@ -35,8 +37,9 @@ const  Nav = () => {
           </li>
         </ul>
       </div>
-    </nav>
+      
 
+    </nav>
 
 
 
